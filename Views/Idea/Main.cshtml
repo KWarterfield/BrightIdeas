@@ -1,0 +1,48 @@
+@model MainVM
+<div class="container">
+    <div class="header-main">
+        <h1>Hi @Model.User.Name !</h1>
+        <a href="/Logout">Logout</a>
+    </div>
+    <div class="jumbotron">
+        <form asp-action="Create" asp-controller="Idea" method="post">
+            <div class="form-group">
+                <span asp-validation-for="Idea.Content"></span>
+                <label asp-for="Idea.Content"></label>
+                <input asp-for="Idea.Content" class="form-control" id="Idea.Content">
+            </div>
+            <button type="submit" class="btn btn-danger">Add Idea!</button>
+        </form>
+        <ul>
+            @foreach (var idea in @Model.allIdeas)
+            {
+                <div class="row row-main">
+                    <div class="col col-first">
+                        <li>
+                            <p><a href="/UserShow/@idea.Creator.UserId">@idea.Creator.Alias</a> says:</p>
+                        </li>
+                    </div>
+                    <div class="col col-second">
+                        <p>@idea.Content</p>
+                        @if(idea.Creator.UserId == Model.User.UserId && idea.Likes.Any(l => l.UserId == Model.User.UserId))
+                        {
+                            <p><a href="/Delete/@idea.IdeaId">Delete</a>     <a href="/IdeaShow/@idea.IdeaId">@idea.Likes.Count people</a> like this.</p> 
+                        }
+                        else if(idea.Creator.UserId == Model.User.UserId)
+                        {
+                            <p><a href="/Delete/@idea.IdeaId">Delete</a>     <a href="/Like/@idea.IdeaId">Like</a>     <a href="/IdeaShow/@idea.IdeaId">@idea.Likes.Count people</a> like this.</p>
+                        }
+                        else if(idea.Likes.Any(l => l.UserId == Model.User.UserId))
+                        {
+                            <p><a href="/IdeaShow/@idea.IdeaId">@idea.Likes.Count people</a> like this.</p>
+                        }
+                        else
+                        {
+                            <p><a href="/Like/@idea.IdeaId">Like</a>     <a href="/IdeaShow/@idea.IdeaId">@idea.Likes.Count people</a> like this.</p>
+                        }
+                    </div>
+                </div>
+            }
+        </ul>
+    </div>
+</div>

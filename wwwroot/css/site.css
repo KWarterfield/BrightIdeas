@@ -1,0 +1,72 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.col-sm {
+    width: 48%;
+    display: inline-block;
+}
+
+.col-sm:nth-of-type(2) {
+    vertical-align: top;
+    margin-left: 3%;
+}
+.header-main h1{
+    display: inline-block;
+}
+
+.header-main a{
+    display: inline-block;
+    margin-left: 60%;
+}
+.col-first {
+    width:20%;
+    display: inline-block;
+}
+.col-second {
+    width: 65%;
+    display: inline-block;
+    border: 2px solid black;
+    padding:5px;
+}
+.row-main {
+    margin-bottom: 10px;
+}
+.info {
+    border-top: 2px solid black;
+}
+
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}

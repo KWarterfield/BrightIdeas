@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="header">
+        <a href="/Main">Bright Ideas</a>
+        <a href="/Logout">Logout</a>
+    </div>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col col-first">
+                <p><a href="/UserShow/@Model.Creator.UserId">@Model.Creator.Alias</a> says:</p>
+            </div>
+            <div class="col col-second">
+                <p>@Model.Content</p>
+                <div class="idea-table">
+                    <h2>People who liked this post:</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            <th scope="col">Alias</th>
+                            <th scope="col">Name</th>
+                            </tr>
+                        </thead>
+                        @foreach (var user in @Model.Likes)
+                        {
+                        <tbody>
+                            <tr>
+                            <th scope="row"><a href="/UserShow/@user.LikeUser.UserId">@user.LikeUser.Alias</a></th>
+                            <td>@user.LikeUser.Name</td>
+                            </tr>
+                        </tbody>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

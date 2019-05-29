@@ -1,0 +1,16 @@
+@model UserVM
+<div class="container">
+    <div class="header">
+        <a href="/Main">Bright Ideas</a>
+        <a href="/Logout">Logout</a>
+    </div>
+    <div class="jumbotron">
+        <h4>Name: @Model.User.Name</h4>
+        <h4>Alias: @Model.User.Alias</h4>
+        <h4>Email: @Model.User.Email</h4>
+        <div class="info">
+            <h5>Total Number of Posts: @Model.User.CreatedIdeas.Count</h5>
+            <h5>Total Number of Likes: @Model.allLikes.Count</h5>
+        </div>
+    </div>
+</div>

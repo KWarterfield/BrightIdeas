@@ -1,0 +1,57 @@
+﻿@model LoginVM
+<div class="container">
+    <div class="header">
+        <h1>Welcome!</h1>
+    </div>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Register!</h1>
+                <form asp-action="Register" asp-controller="User" method="post">
+                    <div class="form-group">
+                        <span asp-validation-for="newUser.Name"></span>
+                        <label asp-for="newUser.Name"></label>
+                        <input asp-for="newUser.Name" class="form-control" id="NameInput">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="newUser.Alias"></span>
+                        <label asp-for="newUser.Alias"></label>
+                        <input asp-for="newUser.Alias" class="form-control" id="AliasInput">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="newUser.Email"></span>
+                        <label asp-for="newUser.Email"></label>
+                        <input asp-for="newUser.Email" class="form-control" id="emailInput">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="newUser.Password"></span>
+                        <label asp-for="newUser.Password"></label>
+                        <input asp-for="newUser.Password" class="form-control" id="passwordInput">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="newUser.Compare"></span>
+                        <label asp-for="newUser.Compare"></label>
+                        <input asp-for="newUser.Compare" class="form-control" id="comparePassword">
+                    </div>
+                    <button type="submit" class="btn btn-danger">Sign up</button>
+                </form>
+            </div>
+            <div class="col-sm">
+                <h1>Log In!</h1>
+                <form asp-action="Login" asp-controller="User" method="post">
+                    <div class="form-group">
+                        <span asp-validation-for="existing.Email"></span>
+                        <label asp-for="existing.Email"></label>
+                        <input asp-for="existing.Email" class="form-control" id="emailInput1">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="existing.Password"></span>
+                        <label asp-for="existing.Password"></label>
+                        <input asp-for="existing.Password" class="form-control" id="passwordInput1">
+                    </div>
+                    <button type="submit" class="btn btn-danger">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
